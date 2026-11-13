@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizzeria Fornace – Pizza napoletana a Torino</title>
+<meta name="description" content="Pizza napoletana a Torino, in una sala con volte a botte e quadri d’epoca. Menu con allergeni, orari e posizione su Google Maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Icone degli allergeni -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-glutine" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M12 2c-1.6 1.6-1.6 3.6 0 5.2 1.6-1.6 1.6-3.6 0-5.2zM12 9c-3 0-4.200-1.800-4.200-4 3 0 4.200 1.800 4.200 4zm0 0c3 0 4.200-1.800 4.200-4-3 0-4.200 1.800-4.200 4zM12 16c-3 0-4.200-1.800-4.200-4 3 0 4.200 1.800 4.200 4zm0 0c3 0 4.200-1.800 4.200-4-3 0-4.200 1.800-4.200 4z"/></g></symbol>
+  <symbol id="i-lattosio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.200 17a1 1 0 0 1-1 1H9.200a1 1 0 0 1-1-1L7 3z"/><path d="M7.400 9h9.200"/></g></symbol>
+  <symbol id="i-pesce" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c3-5 9-6 14-2l5-3v10l-5-3c-5 4-11 3-14-2z"/><circle cx="7.500" cy="11" r=".6"/></g></symbol>
+  <symbol id="i-uova" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 0 6.500 6 6.500 10a6.500 6.500 0 0 1-13 0C5.500 9 8 3 12 3z"/></g></symbol>
+</defs></svg>
+
+<header>
+  <nav class="wrap" aria-label="Navigazione principale">
+    <a class="logo" href="#top">Fornace</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <ul id="navList">
+      <li><a href="#menu">Il menu</a></li>
+      <li><a href="#storia">Storia e sala</a></li>
+      <li><a href="#prenota">Orari e dove siamo</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="status" id="status" role="status" hidden><span class="dot"></span>Siamo aperti adesso</div>
+        <h1>Pizza napoletana sotto le volte di una galleria.</h1>
+        <p>Impasto lievitato 48 ore, forno a legna e una sala con quadri d’epoca nel centro di Torino.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#prenota">Orari e dove siamo</a>
+          <a class="btn btn-ghost" href="#menu">Guarda il menu</a>
+        </div>
+      </div>
+      <img class="arch" src="images/pizza.jpg" alt="Pizza Margherita con mozzarella e basilico fresco" width="452" height="678">
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2>Il menu</h2>
+      <p class="lead">Poche pizze, fatte bene. Gli ingredienti arrivano da produttori campani.</p>
+      <div class="filters" role="group" aria-label="Filtra per categoria">
+        <button type="button" data-cat="tutto" aria-pressed="true">Tutto</button>
+        <button type="button" data-cat="classiche" aria-pressed="false">Classiche</button>
+        <button type="button" data-cat="speciali" aria-pressed="false">Speciali</button>
+        <button type="button" data-cat="fritti" aria-pressed="false">Fritti</button>
+        <button type="button" data-cat="dolci" aria-pressed="false">Dolci</button>
+      </div>
+      <ul class="legend" aria-label="Legenda allergeni">
+        <li><span class="alg"><svg aria-hidden="true"><use href="#i-glutine"/></svg></span>Glutine</li>
+        <li><span class="alg"><svg aria-hidden="true"><use href="#i-lattosio"/></svg></span>Lattosio</li>
+        <li><span class="alg"><svg aria-hidden="true"><use href="#i-pesce"/></svg></span>Pesce</li>
+        <li><span class="alg"><svg aria-hidden="true"><use href="#i-uova"/></svg></span>Uova</li>
+        <li><span class="veg" aria-hidden="true">V</span>Vegetariana</li>
+      </ul>
+      <ul class="items" id="items"></ul>
+      <p class="note">Hai un’allergia o un’intolleranza? Dillo al personale prima di ordinare: ti indichiamo tutti gli ingredienti.</p>
+    </div>
+  </section>
+
+  <section class="about" id="storia">
+    <div class="wrap">
+      <div class="story">
+        <h2>Una famiglia, un forno, una sala da guardare.</h2>
+        <div>
+          <p>Dal 1987 impastiamo a mano ogni mattina. Il forno a legna di faggio raggiunge i 450 gradi e cuoce ogni pizza in circa 90 secondi, con il cornicione alto e morbido.</p>
+          <p>Mangi in una sala con volte a botte, pareti verde bosco e quadri d’epoca. Sostituisci questo testo con la vostra vera storia.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <button type="button" class="shot s1"><img src="images/sala1.jpg" alt="Sala con tavoli apparecchiati, volte a botte e parete verde con edera" loading="lazy"></button>
+        <button type="button" class="shot s2"><img src="images/sala2.jpg" alt="Sala principale con quadri dorati alle pareti e pavimento in legno" loading="lazy"></button>
+        <button type="button" class="shot s3"><img src="images/sala3.jpg" alt="Tavolo per quattro sotto un arco con piante rampicanti" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="prenota">
+    <div class="wrap">
+      <div>
+        <h2>Orari</h2>
+        <table id="hours" aria-label="Orari di apertura">
+          <tbody>
+            <tr data-d="1"><td>Lunedì</td><td>Chiuso</td></tr>
+            <tr data-d="2"><td>Martedì</td><td>18:30 – 23:30</td></tr>
+            <tr data-d="3"><td>Mercoledì</td><td>18:30 – 23:30</td></tr>
+            <tr data-d="4"><td>Giovedì</td><td>18:30 – 23:30</td></tr>
+            <tr data-d="5"><td>Venerdì</td><td>18:30 – 00:00</td></tr>
+            <tr data-d="6"><td>Sabato</td><td>12:00 – 15:00, 18:30 – 00:00</td></tr>
+            <tr data-d="0"><td>Domenica</td><td>12:00 – 15:00, 18:30 – 23:30</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Indirizzo:</strong> Via Roma 1, 10121 Torino (TO)<br>
+        <strong>Telefono:</strong> <a href="tel:+390110000000">011 000 0000</a></p>
+        </div>
+
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=Via+Roma+1%2C+10121+Torino" target="_blank" rel="noopener" aria-label="Apri la posizione della pizzeria in Google Maps">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect class="land" width="400" height="300"/>
+          <path class="water" d="M-10 235C80 205 140 262 230 242S360 192 420 212V320H-10z"/>
+          <rect class="park" x="250" y="28" width="112" height="56" rx="8"/>
+          <g class="road" fill="none" stroke-linecap="round">
+            <path d="M0 108H400" stroke-width="14"/><path d="M0 176H400" stroke-width="10"/>
+            <path d="M110 0V300" stroke-width="12"/><path d="M230 0V240" stroke-width="10"/>
+            <path d="M330 0V200" stroke-width="8"/><path d="M0 40L400 140" stroke-width="6"/>
+          </g>
+          <g transform="translate(230 108)"><path d="M0 0C-12-14-18-24-18-32a18 18 0 1 1 36 0C18-24 12-14 0 0z" fill="#b5362b" stroke="#fff" stroke-width="3"/><circle cy="-32" r="7" fill="#fff"/></g>
+        </svg>
+        <span class="map-label">Via Roma 1, Torino<small>Apri in Google Maps</small></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">Fornace</a>
+    <p>Via Roma 1, Torino (TO) · P. IVA 00000000000</p>
+    <p>© <span id="year">2026</span> Pizzeria Fornace. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="Foto ingrandita">
+  <img alt="">
+  <button type="button" class="lb-close" aria-label="Chiudi">×</button>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
